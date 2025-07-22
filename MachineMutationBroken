@@ -1,0 +1,73 @@
+-- LocalScript dentro de StarterPlayerScripts o StarterGui
+
+local player = game.Players.LocalPlayer
+local gui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
+gui.Name = "MutationGUI"
+gui.ResetOnSpawn = false
+
+-- Marco principal
+local frame = Instance.new("Frame", gui)
+frame.Size = UDim2.new(0, 250, 0, 160)
+frame.Position = UDim2.new(0.05, 0, 0.3, 0)
+frame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+frame.BorderSizePixel = 0
+
+-- UICorner para bordes redondeados
+local corner = Instance.new("UICorner", frame)
+corner.CornerRadius = UDim.new(0, 8)
+
+-- Título
+local title = Instance.new("TextLabel", frame)
+title.Text = "Mutation Randomizer"
+title.Size = UDim2.new(1, 0, 0, 30)
+title.BackgroundColor3 = Color3.fromRGB(255, 0, 144)
+title.TextColor3 = Color3.new(1,1,1)
+title.Font = Enum.Font.GothamBold
+title.TextSize = 16
+title.BorderSizePixel = 0
+
+-- Reroll Button
+local rerollBtn = Instance.new("TextButton", frame)
+rerollBtn.Text = "🔁 Reroll Mutation"
+rerollBtn.Position = UDim2.new(0, 10, 0, 40)
+rerollBtn.Size = UDim2.new(1, -20, 0, 35)
+rerollBtn.BackgroundColor3 = Color3.fromRGB(66, 134, 244)
+rerollBtn.TextColor3 = Color3.new(1,1,1)
+rerollBtn.Font = Enum.Font.Gotham
+rerollBtn.TextSize = 14
+Instance.new("UICorner", rerollBtn).CornerRadius = UDim.new(0, 6)
+
+-- Toggle ESP Button
+local espBtn = Instance.new("TextButton", frame)
+espBtn.Text = "🌐 Toggle ESP"
+espBtn.Position = UDim2.new(0, 10, 0, 85)
+espBtn.Size = UDim2.new(1, -20, 0, 35)
+espBtn.BackgroundColor3 = Color3.fromRGB(180, 255, 180)
+espBtn.TextColor3 = Color3.new(0, 0, 0)
+espBtn.Font = Enum.Font.Gotham
+espBtn.TextSize = 14
+Instance.new("UICorner", espBtn).CornerRadius = UDim.new(0, 6)
+
+-- Créditos
+local credit = Instance.new("TextLabel", frame)
+credit.Text = "Made by Xenooscript"
+credit.Size = UDim2.new(1, 0, 0, 20)
+credit.Position = UDim2.new(0, 0, 1, -20)
+credit.BackgroundTransparency = 1
+credit.TextColor3 = Color3.fromRGB(255, 0, 144)
+credit.Font = Enum.Font.Gotham
+credit.TextSize = 12
+
+-- Función de Reroll
+rerollBtn.MouseButton1Click:Connect(function()
+    print("🔁 Mutación cambiada!")
+    -- Aquí puedes meter tu código de lógica de mutación real
+end)
+
+-- Función de ESP
+local espEnabled = false
+espBtn.MouseButton1Click:Connect(function()
+    espEnabled = not espEnabled
+    print("🌐 ESP: " .. (espEnabled and "Activado" or "Desactivado"))
+    -- Aquí va tu lógica de ESP si quieres que muestre enemigos u objetos
+end)

